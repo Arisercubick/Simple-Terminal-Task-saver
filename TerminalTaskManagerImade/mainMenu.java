@@ -3,6 +3,8 @@ package TerminalTaskManagerImade;
 import TerminalTaskManagerImade.handlers.*;
 
 public class mainMenu {
+    private static final handlers handle = new handlers();
+
     public static void main(String[] args) {
         menu();
     }
@@ -11,7 +13,6 @@ public class mainMenu {
         String[] tasks = new String[1];
         boolean stayInMenu = true;
         while (stayInMenu) {
-            handlers handle = new handlers();
 
             System.out.print(
                     "\nWelcome to your task manager\n[1] Add a Task\n[2] View Tasks\n[3] Mark a Task as complete\n[4] Exit\n");
@@ -27,17 +28,14 @@ public class mainMenu {
     }
 
     public static String[] CompletedTask(String[] arr) {
-        handlers handle = new handlers();
         return handle.CompletedTask(arr);
     }
 
     public static String[] addATask(String[] tasks) {
-        handlers handle = new handlers();
         return handle.addTask(tasks);
     }
 
     public static void print(String[] arr) {
-        handlers handle = new handlers();
         handle.printArray(arr);
     }
 }

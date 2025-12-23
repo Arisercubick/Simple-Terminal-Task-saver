@@ -20,8 +20,15 @@ public class mainMenu {
                 tasks = addATask(tasks);
             } else if (userInput == 2) {
                 print(tasks);
+            } else if (userInput == 3) {
+                tasks = CompletedTask(tasks);
             }
         }
+    }
+
+    public static String[] CompletedTask(String[] arr) {
+        handlers handle = new handlers();
+        return handle.CompletedTask(arr);
     }
 
     public static String[] addATask(String[] tasks) {

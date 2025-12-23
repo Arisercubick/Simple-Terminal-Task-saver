@@ -64,9 +64,38 @@ public class handlers {
         return newInput;
     }
 
+    public String[] CompletedTask(String[] arr) {
+
+        boolean validInput = false;
+        int userInput = 0;
+        while (!validInput) {
+            try {
+                printArray(arr);
+                System.out.print("\nWhat is the task you completed: ");
+                userInput = reader.nextInt();
+            } catch (java.util.InputMismatchException e) {
+                reader.next();
+                System.out.println("Input an integer");
+            }
+            if (userInput > 0 && userInput <= arr.length) {
+                validInput = true;
+            }
+        }
+        System.out.println("Removing the completed task: " + arr[userInput - 1]);
+        String[] newArr = new String[arr.length - 1];
+        for (int i = 0, j = 0; j < arr.length; j++) {
+            if (!(j == userInput - 1)) {
+                newArr[i] = arr[j];
+                i++;
+            }
+        }
+
+        return newArr;
+    }
+
     public void printArray(String[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf(arr[i] + ", ");
+            System.out.print(arr[i] + ", ");
         }
     }
 }

@@ -3,9 +3,9 @@ package TerminalTaskManagerImade.handlers;
 import java.util.Scanner;
 
 public class handlers {
-    public int optionHandler(int options) {
-        Scanner reader = new Scanner(System.in);
+    private static Scanner reader = new Scanner(System.in);
 
+    public int optionHandler(int options) {
         int userInput = 0;
         while (userInput == 0) {
             try {
@@ -15,14 +15,36 @@ public class handlers {
                 System.out.println("Invalid input, please input a number");
                 reader.nextLine();
             }
-            System.out.println("HMMMMMMMMM");
             if (!(userInput > 0 && userInput <= options)) {
                 System.out.println("Pick a valid option");
                 userInput = 0;
             }
         }
 
-        reader.close();
+        reader.nextLine();
         return userInput;
+    }
+
+    public String addTask() {
+        boolean validInput = false;
+        String userInput;
+        String newInput = " ";
+        while (!validInput) {
+            System.out.print("\nAdd your task: ");
+            userInput = reader.nextLine();
+            for (int i = 0; i < userInput.length() && !validInput; i++) {
+                if (userInput.charAt(i) != ' ') {
+                    validInput = true;
+                    for (int j = i; j < userInput.length(); j++) {
+                        newInput += userInput.charAt(j);
+                    }
+                }
+            }
+
+            if (!validInput) {
+                System.out.println("Invalid Input");
+            }
+        }
+        return newInput;
     }
 }

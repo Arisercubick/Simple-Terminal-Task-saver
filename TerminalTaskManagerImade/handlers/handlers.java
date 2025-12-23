@@ -25,10 +25,26 @@ public class handlers {
         return userInput;
     }
 
-    public String addTask() {
+    public String[] addTask(String[] arr) {
+        String[] newArr;
+        if (arr[arr.length - 1] == null) {
+            newArr = new String[arr.length];
+        } else {
+            newArr = new String[arr.length + 1];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            newArr[i] = arr[i];
+        }
+
+        newArr[newArr.length - 1] = addATask(newArr.length);
+        return newArr;
+    }
+
+    public String addATask(int position) {
         boolean validInput = false;
         String userInput;
-        String newInput = " ";
+        String newInput = "[" + position + "] ";
         while (!validInput) {
             System.out.print("\nAdd your task: ");
             userInput = reader.nextLine();
@@ -46,5 +62,11 @@ public class handlers {
             }
         }
         return newInput;
+    }
+
+    public void printArray(String[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf(arr[i] + ", ");
+        }
     }
 }

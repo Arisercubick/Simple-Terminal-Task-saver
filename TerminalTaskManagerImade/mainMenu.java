@@ -23,6 +23,8 @@ public class mainMenu {
                 print(tasks);
             } else if (userInput == 3) {
                 tasks = CompletedTask(tasks);
+            } else {
+                stayInMenu = false;
             }
         }
     }

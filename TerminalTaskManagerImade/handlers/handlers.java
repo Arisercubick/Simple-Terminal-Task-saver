@@ -9,7 +9,7 @@ public class handlers {
         int userInput = 0;
         while (userInput == 0) {
             try {
-                System.out.println("Where do you want to go: ");
+                System.out.print("\nWhere do you want to go: ");
                 userInput = reader.nextInt();
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input, please input a number");
@@ -65,7 +65,6 @@ public class handlers {
     }
 
     public String[] CompletedTask(String[] arr) {
-
         boolean validInput = false;
         int userInput = 0;
         while (!validInput) {

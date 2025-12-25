@@ -1,11 +1,9 @@
 package TerminalTaskManagerImade.handlers;
 
 import java.util.Scanner;
-import TerminalTaskManagerImade.handlers.storage.*;
 
 public class handlers {
     private static Scanner reader = new Scanner(System.in);
-    private static TaskManager TaskStorage = new TaskManager();
 
     public int optionHandler(int options) {
         int userInput = 0;
@@ -13,23 +11,22 @@ public class handlers {
             try {
                 System.out.print("\nWhere do you want to go: ");
                 userInput = reader.nextInt();
+                if (!(userInput > 0 && userInput <= options)) {
+                System.out.println("Pick a valid option");
+                userInput = 0;
+            }
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input, please input a number");
                 reader.nextLine();
             }
-            if (!(userInput > 0 && userInput <= options)) {
-                System.out.println("Pick a valid option");
-                userInput = 0;
-            }
         }
-
         reader.nextLine();
         return userInput;
     }
 
     public String[] addTask(String[] arr) {
         String[] newArr;
-        if (arr[arr.length - 1] == null) {
+        if (arr.length>0 && arr[arr.length - 1] == null) {
             newArr = new String[arr.length];
         } else {
             newArr = new String[arr.length + 1];
@@ -46,7 +43,7 @@ public class handlers {
     public String addATask(int position) {
         boolean validInput = false;
         String userInput;
-        String newInput = "[" + position + "] ";
+        String newInput = "[" + position+ "] ";
         while (!validInput) {
             System.out.print("\nAdd your task: ");
             userInput = reader.nextLine();
@@ -72,7 +69,7 @@ public class handlers {
         while (!validInput) {
             try {
                 printArray(arr);
-                System.out.print("\nWhat is the task you completed: ");
+                System.out.print("\nWhat is the task you completed. this will permanently delete the task (number of the task): ");
                 userInput = reader.nextInt();
             } catch (java.util.InputMismatchException e) {
                 reader.next();
@@ -95,8 +92,16 @@ public class handlers {
     }
 
     public void printArray(String[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ", ");
+        if (arr.length>0){
+            for (int i = 0; i < arr.length; i++) {
+                if (i!=arr.length-1){
+                    System.out.print(arr[i] + ", ");
+                } else{
+                    System.out.println(arr[i]);
+                }
+            }
+        }else{
+            System.out.println("you have no tasks");
         }
     }
 }

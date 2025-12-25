@@ -21,7 +21,6 @@ public class TaskManager {
                 count++;
             }
             counter.close();
-
             // This just reads the tasks
             String[] tasks = new String[count];
             Scanner reader = new Scanner(file);
@@ -30,11 +29,14 @@ public class TaskManager {
                 tasks[i++] = reader.nextLine();
             }
             reader.close();
-
             return tasks;
 
         } catch (Exception e) {
+<<<<<<< HEAD
             System.out.println("Failed to load tasks")
+=======
+            System.out.println("failed to read tasks.");
+>>>>>>> a04e0a631fac8d6f6e83bbdedde41cb55c13afae
             return new String[1];
         }
     }
@@ -54,4 +56,6 @@ public class TaskManager {
             System.out.println("Failed to save tasks.");
         }
     }
+
+    
 }

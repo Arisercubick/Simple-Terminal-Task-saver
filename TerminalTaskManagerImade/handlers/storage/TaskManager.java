@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TaskManager {
 
-    private static final String FILE_NAME = "tasks.txt";
+    private static final String FILE_NAME = "TerminalTaskManagerImade/handlers/storage/tasks.txt";
 
     public String[] loadTasks() {
         File file = new File(FILE_NAME);
@@ -34,6 +34,7 @@ public class TaskManager {
             return tasks;
 
         } catch (Exception e) {
+            System.out.println("Failed to load tasks")
             return new String[1];
         }
     }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TaskManager {
 
-    private static final String FILE_NAME = "tasks.txt";
+    private static final String FILE_NAME = "TerminalTaskManagerImade/handlers/storage/tasks.txt";
 
     public String[] loadTasks() {
         File file = new File(FILE_NAME);
@@ -21,7 +21,6 @@ public class TaskManager {
                 count++;
             }
             counter.close();
-
             // This just reads the tasks
             String[] tasks = new String[count];
             Scanner reader = new Scanner(file);
@@ -30,10 +29,10 @@ public class TaskManager {
                 tasks[i++] = reader.nextLine();
             }
             reader.close();
-
             return tasks;
 
         } catch (Exception e) {
+            System.out.println("failed to read tasks.");
             return new String[1];
         }
     }
@@ -53,4 +52,6 @@ public class TaskManager {
             System.out.println("Failed to save tasks.");
         }
     }
+
+    
 }

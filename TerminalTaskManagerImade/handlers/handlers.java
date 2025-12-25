@@ -1,9 +1,11 @@
 package TerminalTaskManagerImade.handlers;
 
 import java.util.Scanner;
+import TerminalTaskManagerImade.handlers.storage.*;
 
 public class handlers {
     private static Scanner reader = new Scanner(System.in);
+    private static TaskManager TaskStorage = new TaskManager();
 
     public int optionHandler(int options) {
         int userInput = 0;

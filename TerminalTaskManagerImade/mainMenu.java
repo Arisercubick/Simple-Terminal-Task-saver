@@ -1,6 +1,7 @@
 package TerminalTaskManagerImade;
 
 import TerminalTaskManagerImade.handlers.*;
+import TerminalTaskManagerImade.handlers.storage.*;
 
 public class mainMenu {
     private static final handlers handle = new handlers();
@@ -10,7 +11,8 @@ public class mainMenu {
     }
 
     public static void menu() {
-        String[] tasks = new String[1];
+        TaskManager TaskStorage = new TaskManager();
+        String[] tasks = TaskStorage.loadTasks();
         boolean stayInMenu = true;
         while (stayInMenu) {
 

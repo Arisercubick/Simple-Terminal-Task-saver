@@ -12,9 +12,9 @@ public class handlers {
                 System.out.print("\nWhere do you want to go: ");
                 userInput = reader.nextInt();
                 if (!(userInput > 0 && userInput <= options)) {
-                System.out.println("Pick a valid option");
-                userInput = 0;
-            }
+                    System.out.println("Pick a valid option");
+                    userInput = 0;
+                }
             } catch (java.util.InputMismatchException e) {
                 System.out.println("Invalid input, please input a number");
                 reader.nextLine();
@@ -26,7 +26,7 @@ public class handlers {
 
     public String[] addTask(String[] arr) {
         String[] newArr;
-        if (arr.length>0 && arr[arr.length - 1] == null) {
+        if (arr.length > 0 && arr[arr.length - 1] == null) {
             newArr = new String[arr.length];
         } else {
             newArr = new String[arr.length + 1];
@@ -69,7 +69,8 @@ public class handlers {
         while (!validInput) {
             try {
                 printArray(arr);
-                System.out.print("\nWhat is the task you completed. this will permanently delete the task (number of the task): ");
+                System.out.print(
+                        "\nWhat is the task you completed. this will permanently delete the task (number of the task): ");
                 userInput = reader.nextInt();
             } catch (java.util.InputMismatchException e) {
                 reader.next();
@@ -92,7 +93,7 @@ public class handlers {
     }
 
     public void printArray(String[] arr) {
-        if (arr.length>0){
+        if (arr.length > 0) {
             for (int i = 0; i < arr.length; i++) {
                 if (i!=arr.length-1){
                     System.out.print("["+(i+1)+"] "+arr[i] + ", ");
@@ -100,7 +101,7 @@ public class handlers {
                     System.out.println("["+(i+1)+"] "+arr[i]);
                 }
             }
-        }else{
+        } else {
             System.out.println("you have no tasks");
         }
     }

@@ -36,14 +36,14 @@ public class handlers {
             newArr[i] = arr[i];
         }
 
-        newArr[newArr.length - 1] = addATask(newArr.length);
+        newArr[newArr.length - 1] = addATask();
         return newArr;
     }
 
-    public String addATask(int position) {
+    public String addATask() {
         boolean validInput = false;
         String userInput;
-        String newInput = "[" + position + "] ";
+        String newInput = "";
         while (!validInput) {
             System.out.print("\nAdd your task: ");
             userInput = reader.nextLine();
@@ -95,10 +95,10 @@ public class handlers {
     public void printArray(String[] arr) {
         if (arr.length > 0) {
             for (int i = 0; i < arr.length; i++) {
-                if (i != arr.length - 1) {
-                    System.out.print(arr[i] + ", ");
-                } else {
-                    System.out.println(arr[i]);
+                if (i!=arr.length-1){
+                    System.out.print("["+(i+1)+"] "+arr[i] + ", ");
+                } else{
+                    System.out.println("["+(i+1)+"] "+arr[i]);
                 }
             }
         } else {

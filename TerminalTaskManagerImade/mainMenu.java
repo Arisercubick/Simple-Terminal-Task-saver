@@ -1,7 +1,5 @@
-package TerminalTaskManagerImade;
-
-import TerminalTaskManagerImade.handlers.*;
-import TerminalTaskManagerImade.handlers.storage.*;
+import handlers.*;
+import handlers.storage.*;
 
 public class mainMenu {
     private static final handlers handle = new handlers();
